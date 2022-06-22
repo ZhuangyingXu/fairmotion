@@ -61,10 +61,10 @@ def save_seq(i, pred_seq, src_seq, tgt_seq, skel):
     ref_motion = motion_ops.append(motions[1], motions[2])
     pred_motion = motion_ops.append(motions[1], motions[0])
     bvh.save(
-        ref_motion, os.path.join(args.save_output_path, "ref", f"{i}.bvh"),
+        ref_motion, os.path.join(args.save_output_path, f"{args.architecture}_ref", f"{i}.bvh"),
     )
     bvh.save(
-        pred_motion, os.path.join(args.save_output_path, "pred", f"{i}.bvh"),
+        pred_motion, os.path.join(args.save_output_path, f"{args.architecture}_pred", f"{i}.bvh"),
     )
 
 
@@ -82,8 +82,8 @@ def save_motion_files(seqs_T, args):
     amass_dip_motion = amass_dip.load(
         file=None, load_skel=True, load_motion=False,
     )
-    utils.create_dir_if_absent(os.path.join(args.save_output_path, "ref"))
-    utils.create_dir_if_absent(os.path.join(args.save_output_path, "pred"))
+    utils.create_dir_if_absent(os.path.join(args.save_output_path, f"{args.architecture}_ref"))
+    utils.create_dir_if_absent(os.path.join(args.save_output_path, f"{args.architecture}_pred"))
 
     pool = Pool(10)
     indices = range(len(seqs_T[0]))
