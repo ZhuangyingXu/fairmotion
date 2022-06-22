@@ -31,7 +31,7 @@ def set_seeds():
 def train(args):
     fairmotion_utils.create_dir_if_absent(args.save_model_path)
     logging.info(args._get_kwargs())
-    utils.log_config(args.save_model_path, args)
+    utils.log_config(args.save_model_path, args.architecture, args)
 
     set_seeds()
     device = "cuda" if torch.cuda.is_available() else "cpu"
@@ -136,11 +136,11 @@ def train(args):
             )
             logging.info(f"Validation MAE: {mae}")
             torch.save(
-                model.state_dict(), f"{args.save_model_path}/{epoch}.model"
+                model.state_dict(), f"{args.save_model_path}/{args.architecture}_{epoch}.model"
             )
             if len(val_losses) == 0 or val_loss <= min(val_losses):
                 torch.save(
-                    model.state_dict(), f"{args.save_model_path}/best.model"
+                    model.state_dict(), f"{args.save_model_path}/{args.architecture}_best.model"
                 )
     return training_losses, val_losses
 
@@ -150,7 +150,7 @@ def plot_curves(args, training_losses, val_losses):
     plt.plot(range(len(val_losses)), val_losses)
     plt.ylabel("MSE Loss")
     plt.xlabel("Epoch")
-    plt.savefig(f"{args.save_model_path}/loss.svg", format="svg")
+    plt.savefig(f"{args.save_model_path}/{args.architecture}_loss.svg", format="svg")
 
 
 def main(args):

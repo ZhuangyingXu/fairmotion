@@ -136,7 +136,7 @@ def main(args):
 
     logging.info("Preparing model")
     model = prepare_model(
-        f"{args.save_model_path}/{args.epoch if args.epoch else 'best'}.model",
+        f"{args.save_model_path}/{args.architecture}_{args.epoch if args.epoch else 'best'}.model",
         num_predictions,
         args,
         device,

@@ -144,8 +144,8 @@ def prepare_model(
     return model
 
 
-def log_config(path, args):
-    with open(os.path.join(path, "config.txt"), "w") as f:
+def log_config(path, architecture, args):
+    with open(os.path.join(path, f"{architecture}_config.txt"), "w") as f:
         for key, value in args._get_kwargs():
             f.write(f"{key}:{value}\n")
 
