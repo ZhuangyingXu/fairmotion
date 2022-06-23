@@ -18,7 +18,7 @@ setup(
         "pyrender==0.1.39",
         "scikit-learn",
         "scipy",
-        "torch==1.6.0",
+        "torch==1.11.0", # originally 1.6.0, would have error for ERROR: Could not find a version that satisfies the requirement torch==1.6.0 
         "tqdm",
         "PyOpenGL==3.1.0",
         "body_visualizer @ git+https://github.com/nghorbani/body_visualizer.git@be9cf756f8d1daed870d4c7ad1aa5cc3478a546c",
