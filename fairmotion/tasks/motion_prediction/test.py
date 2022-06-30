@@ -53,7 +53,7 @@ def run_model(model, data_iter, max_len, device, mean, std):
     ]
 
 
-def save_seq(i, pred_seq, src_seq, tgt_seq, skel):
+def save_seq(i, pred_seq, src_seq, tgt_seq, skel, args):
     # seq_T contains pred, src, tgt data in the same order
     motions = [
         motion_class.Motion.from_matrix(seq, skel)
@@ -90,8 +90,9 @@ def save_motion_files(seqs_T, args):
     pool = Pool(cpu_num)
     indices = range(len(seqs_T[0]))
     skels = [amass_dip_motion.skel for _ in indices]
+    args_list = [args for _ in indices]
     pool.starmap(
-        save_seq, [list(zip(indices, *seqs_T, skels))[i] for i in idxs_to_save]
+        save_seq, [list(zip(indices, *seqs_T, skels, args_list))[i] for i in idxs_to_save]
     )
 
 
