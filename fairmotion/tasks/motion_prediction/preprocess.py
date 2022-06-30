@@ -5,7 +5,7 @@ import logging
 import numpy as np
 import os
 import pickle
-
+import psutil
 from fairmotion.data import amass_dip
 from fairmotion.ops import motion as motion_ops
 from fairmotion.tasks.motion_prediction import utils
@@ -80,10 +80,11 @@ def process_split(
     assert rep in ["aa", "rotmat", "quat"]
     convert_fn = utils.convert_fn_from_R(rep)
 
+    cpu_num = psutil.cpu_count(logical = False)
     data = fairmotion_utils.run_parallel(
         process_file,
         all_fnames,
-        num_cpus=40,
+        num_cpus=cpu_num,
         create_windows=create_windows,
         convert_fn=convert_fn,
         lengths=(src_len, tgt_len),

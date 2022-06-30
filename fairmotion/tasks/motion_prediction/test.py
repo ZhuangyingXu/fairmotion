@@ -6,6 +6,7 @@ import numpy as np
 import os
 import torch
 from multiprocessing import Pool
+import psutil
 
 from fairmotion.data import amass_dip, bvh
 from fairmotion.core import motion as motion_class
@@ -85,7 +86,8 @@ def save_motion_files(seqs_T, args):
     utils.create_dir_if_absent(os.path.join(args.save_output_path, f"{args.architecture}_ref"))
     utils.create_dir_if_absent(os.path.join(args.save_output_path, f"{args.architecture}_pred"))
 
-    pool = Pool(10)
+    cpu_num = psutil.cpu_count(logical = False)
+    pool = Pool(cpu_num)
     indices = range(len(seqs_T[0]))
     skels = [amass_dip_motion.skel for _ in indices]
     pool.starmap(

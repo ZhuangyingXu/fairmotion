@@ -6,6 +6,7 @@ import os
 import torch
 from functools import partial
 from multiprocessing import Pool
+import psutil
 
 from fairmotion.models import (
     decoders,
@@ -60,7 +61,8 @@ def flatten_angles(arr, rep):
 
 
 def multiprocess_convert(arr, convert_fn):
-    pool = Pool(40)
+    cpu_num = psutil.cpu_count(logical = False)
+    pool = Pool(cpu_num)
     result = list(pool.map(convert_fn, arr))
     return result
 
