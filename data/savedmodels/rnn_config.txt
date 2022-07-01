@@ -1,0 +1,12 @@
+preprocessed_path:D:\gitHub\GT\fairmotion\data\preprocessedoutput\aa
+batch_size:64
+shuffle:False
+hidden_dim:1024
+num_layers:1
+save_model_path:D:\gitHub\GT\fairmotion\data\savedmodels
+save_model_frequency:5
+epochs:50
+device:None
+architecture:rnn
+lr:None
+optimizer:sgd
