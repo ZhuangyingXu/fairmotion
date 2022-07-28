@@ -146,10 +146,13 @@ def train(args):
 
 
 def plot_curves(args, training_losses, val_losses):
-    plt.plot(range(len(training_losses)), training_losses)
-    plt.plot(range(len(val_losses)), val_losses)
+    plt.title(args.architecture)
+    plt.plot(range(len(training_losses)), training_losses, label='training')
+    plt.plot(range(len(val_losses)), val_losses, label='validation')
+    plt.legend(loc='upper right')
     plt.ylabel("MSE Loss")
     plt.xlabel("Epoch")
+    plt.grid()
     plt.savefig(f"{args.save_model_path}/{args.architecture}_loss.svg", format="svg")
 
 
