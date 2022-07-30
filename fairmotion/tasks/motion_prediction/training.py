@@ -9,7 +9,7 @@ import random
 import torch
 import torch.nn as nn
 
-from fairmotion.tasks.motion_prediction import generate, utils, test
+from fairmotion.tasks.motion_prediction import generate, utils, test, metrics
 from fairmotion.utils import utils as fairmotion_utils
 
 
@@ -63,7 +63,8 @@ def train(args):
         architecture=args.architecture,
     )
 
-    criterion = nn.MSELoss()
+    # criterion = nn.MSELoss()
+    criterion = metrics.mpjpe_error
     model.init_weights()
     training_losses, val_losses = [], []
 
@@ -72,6 +73,8 @@ def train(args):
         model.eval()
         src_seqs, tgt_seqs = src_seqs.to(device), tgt_seqs.to(device)
         outputs = model(src_seqs, tgt_seqs, teacher_forcing_ratio=1,)
+        # We might need to reshape this... The loss fn expects the shape:
+        # (..., n_joints, 3, 3)
         loss = criterion(outputs, tgt_seqs)
         epoch_loss += loss.item()
     epoch_loss = epoch_loss / num_training_sequences
