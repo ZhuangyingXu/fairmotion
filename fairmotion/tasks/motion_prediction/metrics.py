@@ -1,6 +1,7 @@
 # Copyright (c) Facebook, Inc. and its affiliates.
 
 import numpy as np
+import torch
 from fairmotion.ops import conversions
 
 
@@ -40,3 +41,16 @@ def euler_diff(predictions, targets):
 
     # reshape to original
     return np.reshape(euc_error, ori_shape)
+
+def mpjpe_error(predictions, targets):
+    assert predictions.shape[-1] == 3 and predictions.shape[-2] == 3
+    assert targets.shape[-1] == 3 and targets.shape[-2] == 3
+    n_joints = predictions.shape[-3]
+
+    ori_shape = predictions.shape[:-3]
+    preds = np.reshape(predictions, [-1, 3, 3])
+    targs = np.reshape(targets, [-1, 3, 3])
+
+    euler_preds = conversions.R2E(preds)  # (N, 3)
+    euler_targs = conversions.R2E(targs)  # (N, 3)
+    return torch.mean(torch.norm(euler_targs - euler_preds, 2, 1))
