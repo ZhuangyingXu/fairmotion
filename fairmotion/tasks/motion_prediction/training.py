@@ -32,8 +32,10 @@ def mpjpe_error(predictions, targets):
     MPJPE error for training loss. predictions and targets are in the shape of 
     (batch_size, frames, n_joints * 3 angles)
     """
-    predictions = predictions.contiguous().view(-1, 3)
-    targets = targets.contiguous().view(-1, 3)
+    # predictions = predictions.contiguous().view(-1, 3)
+    # targets = targets.contiguous().view(-1, 3)
+    predictions = predictions.reshape(-1, 3)
+    targets = targets.reshape(-1, 3)
     return torch.mean(torch.norm(targets - predictions, 2, 1))
 
 def train(args):
