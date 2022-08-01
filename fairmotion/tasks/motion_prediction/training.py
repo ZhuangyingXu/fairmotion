@@ -83,8 +83,6 @@ def train(args):
         model.eval()
         src_seqs, tgt_seqs = src_seqs.to(device), tgt_seqs.to(device)
         outputs = model(src_seqs, tgt_seqs, teacher_forcing_ratio=1,)
-        # Data is in the shape of (batch_size, seq_len, num_predictions)
-        # With num_predictions = 24 joints * 3 axis angles
         loss = criterion(outputs, tgt_seqs)
         epoch_loss += loss.item()
     epoch_loss = epoch_loss / num_training_sequences
