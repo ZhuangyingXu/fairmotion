@@ -1,0 +1,116 @@
+(fairmotion) D:\gitHub\GT\fairmotion>python fairmotion/tasks/motion_prediction/training.py     --save-model-path "D:\gitHub\GT\fairmotion\data\savedmodels"    --preprocessed-path "D:\gitHub\GT\fairmotion\data\preprocessedoutput\aa"    --epochs 50    --architecture "seq2seq"
+[2022-07-31 13:02:42] [('preprocessed_path', 'D:\\gitHub\\GT\\fairmotion\\data\\preprocessedoutput\\aa'), ('batch_size', 64), ('shuffle', False), ('hidden_dim', 1024), ('num_layers', 1), ('save_model_path', 'D:\\gitHub\\GT\\fairmotion\\data\\savedmodels'), ('save_model_frequency', 5), ('epochs', 50), ('device', None), ('architecture', 'seq2seq'), ('lr', None), ('optimizer', 'sgd')]
+[2022-07-31 13:02:42] Using device: cuda
+[2022-07-31 13:02:42] Preparing dataset...
+[2022-07-31 13:06:53] Before training: Training loss 0.016506942642689256 | Validation loss 0.017277535196123624
+[2022-07-31 13:06:53] Training model...
+[2022-07-31 13:06:53] Running epoch 0 | teacher_forcing_ratio=1.0
+[2022-07-31 13:16:43] Training loss 0.006144846390122175 | Validation loss 0.01156473469217952 | Iterations 731
+[2022-07-31 13:19:05] Validation MAE: {6: 8.535618942056068, 12: 17.790632250105364, 18: 28.769037790317537, 24: 41.326956123548136}
+[2022-07-31 13:19:06] Running epoch 1 | teacher_forcing_ratio=0.96
+[2022-07-31 13:28:54] Training loss 0.003082044944278444 | Validation loss 0.010659212496742388 | Iterations 731
+[2022-07-31 13:28:54] Running epoch 2 | teacher_forcing_ratio=0.92
+[2022-07-31 13:38:44] Training loss 0.0024146368323497316 | Validation loss 0.010216922943121392 | Iterations 731
+[2022-07-31 13:38:44] Running epoch 3 | teacher_forcing_ratio=0.88
+[2022-07-31 13:48:46] Training loss 0.002085291727055086 | Validation loss 0.009978892612210431 | Iterations 731
+[2022-07-31 13:48:46] Running epoch 4 | teacher_forcing_ratio=0.84
+[2022-07-31 13:58:46] Training loss 0.0018881465147432355 | Validation loss 0.00989229078462696 | Iterations 731
+[2022-07-31 13:58:46] Running epoch 5 | teacher_forcing_ratio=0.8
+[2022-07-31 14:08:56] Training loss 0.0017631402302201585 | Validation loss 0.009541852233121614 | Iterations 731
+[2022-07-31 14:11:06] Validation MAE: {6: 5.2110619141563, 12: 12.976851580378618, 18: 23.108324926904054, 24: 35.2562070350336}
+[2022-07-31 14:11:07] Running epoch 6 | teacher_forcing_ratio=0.76
+[2022-07-31 14:20:55] Training loss 0.0016811215703280854 | Validation loss 0.009662660121213883 | Iterations 731
+[2022-07-31 14:20:55] Running epoch 7 | teacher_forcing_ratio=0.72
+[2022-07-31 14:30:45] Training loss 0.0016266996745457618 | Validation loss 0.009499908838896388 | Iterations 731
+[2022-07-31 14:30:45] Running epoch 8 | teacher_forcing_ratio=0.6799999999999999
+[2022-07-31 14:40:36] Training loss 0.001607108727885346 | Validation loss 0.009495613376645323 | Iterations 731
+[2022-07-31 14:40:36] Running epoch 9 | teacher_forcing_ratio=0.64
+[2022-07-31 14:50:26] Training loss 0.001597928542924604 | Validation loss 0.009253966177479814 | Iterations 731
+[2022-07-31 14:50:26] Running epoch 10 | teacher_forcing_ratio=0.6
+[2022-07-31 15:00:16] Training loss 0.0016300671181428516 | Validation loss 0.009389484683935278 | Iterations 731
+[2022-07-31 15:02:25] Validation MAE: {6: 4.534245955473033, 12: 11.868183195225367, 18: 21.780985995040133, 24: 33.86346306932768}
+[2022-07-31 15:02:25] Running epoch 11 | teacher_forcing_ratio=0.56
+[2022-07-31 15:12:16] Training loss 0.00165223054586648 | Validation loss 0.009413204693702673 | Iterations 731
+[2022-07-31 15:12:16] Running epoch 12 | teacher_forcing_ratio=0.52
+[2022-07-31 15:22:07] Training loss 0.0017327900565150497 | Validation loss 0.009468250592783198 | Iterations 731
+[2022-07-31 15:22:07] Running epoch 13 | teacher_forcing_ratio=0.48
+[2022-07-31 15:32:02] Training loss 0.0018274266682716575 | Validation loss 0.009970588719755681 | Iterations 731
+[2022-07-31 15:32:02] Running epoch 14 | teacher_forcing_ratio=0.43999999999999995
+[2022-07-31 15:41:57] Training loss 0.00190343977188141 | Validation loss 0.009528974962082827 | Iterations 731
+[2022-07-31 15:41:57] Running epoch 15 | teacher_forcing_ratio=0.4
+[2022-07-31 15:51:53] Training loss 0.002060464372693533 | Validation loss 0.010484054326664792 | Iterations 731
+[2022-07-31 15:54:05] Validation MAE: {6: 4.411323529974684, 12: 12.347759129034968, 18: 23.423671157739694, 24: 37.01834327281688}
+[2022-07-31 15:54:05] Running epoch 16 | teacher_forcing_ratio=0.36
+[2022-07-31 16:04:05] Training loss 0.0017920109063483272 | Validation loss 0.00955495915563291 | Iterations 731
+[2022-07-31 16:04:05] Running epoch 17 | teacher_forcing_ratio=0.31999999999999995
+[2022-07-31 16:14:04] Training loss 0.0018990674291787294 | Validation loss 0.008755680761331281 | Iterations 731
+[2022-07-31 16:14:04] Running epoch 18 | teacher_forcing_ratio=0.28
+[2022-07-31 16:24:03] Training loss 0.0021933926372102817 | Validation loss 0.009485856910925433 | Iterations 731
+[2022-07-31 16:24:03] Running epoch 19 | teacher_forcing_ratio=0.24
+[2022-07-31 16:34:02] Training loss 0.0025024772472192606 | Validation loss 0.009426882639028727 | Iterations 731
+[2022-07-31 16:34:02] Running epoch 20 | teacher_forcing_ratio=0.19999999999999996
+[2022-07-31 16:44:02] Training loss 0.002907653838422998 | Validation loss 0.009620130804343117 | Iterations 731
+[2022-07-31 16:46:11] Validation MAE: {6: 4.36190215199022, 12: 12.234833592761772, 18: 23.361218025359054, 24: 37.187500884179414}
+[2022-07-31 16:46:11] Running epoch 21 | teacher_forcing_ratio=0.16000000000000003
+[2022-07-31 16:56:10] Training loss 0.003375215419929967 | Validation loss 0.00881417994821111 | Iterations 731
+[2022-07-31 16:56:10] Running epoch 22 | teacher_forcing_ratio=0.12
+[2022-07-31 17:06:06] Training loss 0.004285387205618879 | Validation loss 0.010145019875858145 | Iterations 731
+[2022-07-31 17:06:06] Running epoch 23 | teacher_forcing_ratio=0.07999999999999996
+[2022-07-31 17:16:02] Training loss 0.00510442499088538 | Validation loss 0.009583665768817601 | Iterations 731
+[2022-07-31 17:16:02] Running epoch 24 | teacher_forcing_ratio=0.040000000000000036
+[2022-07-31 17:26:00] Training loss 0.0047477666314340704 | Validation loss 0.008267286879893716 | Iterations 731
+[2022-07-31 17:26:00] Running epoch 25 | teacher_forcing_ratio=0.0
+[2022-07-31 17:36:17] Training loss 0.006094650559543811 | Validation loss 0.008820095646158115 | Iterations 731
+[2022-07-31 17:38:36] Validation MAE: {6: 4.2504001828612195, 12: 11.558977198939775, 18: 21.49691116335791, 24: 33.582171913074596}
+[2022-07-31 17:38:37] Running epoch 26 | teacher_forcing_ratio=0.0
+[2022-07-31 17:48:41] Training loss 0.005776441004331701 | Validation loss 0.008389508653171621 | Iterations 731
+[2022-07-31 17:48:41] Running epoch 27 | teacher_forcing_ratio=0.0
+[2022-07-31 17:59:10] Training loss 0.005606028088098282 | Validation loss 0.008275495074082373 | Iterations 731
+[2022-07-31 17:59:10] Running epoch 28 | teacher_forcing_ratio=0.0
+[2022-07-31 18:09:40] Training loss 0.005483906722847665 | Validation loss 0.008125822008138701 | Iterations 731
+[2022-07-31 18:09:40] Running epoch 29 | teacher_forcing_ratio=0.0
+[2022-07-31 18:20:05] Training loss 0.005394166299495618 | Validation loss 0.00803697359903037 | Iterations 731
+[2022-07-31 18:20:05] Running epoch 30 | teacher_forcing_ratio=0.0
+[2022-07-31 18:30:20] Training loss 0.00532213446784477 | Validation loss 0.007951884642012458 | Iterations 731
+[2022-07-31 18:32:33] Validation MAE: {6: 4.025348063639029, 12: 10.582955324677583, 18: 19.213021564715937, 24: 29.472497188244695}
+[2022-07-31 18:32:34] Running epoch 31 | teacher_forcing_ratio=0.0
+[2022-07-31 18:42:44] Training loss 0.0052529163619885015 | Validation loss 0.007833805585543448 | Iterations 731
+[2022-07-31 18:42:44] Running epoch 32 | teacher_forcing_ratio=0.0
+[2022-07-31 18:53:09] Training loss 0.005206623387546375 | Validation loss 0.00788723018187097 | Iterations 731
+[2022-07-31 18:53:09] Running epoch 33 | teacher_forcing_ratio=0.0
+[2022-07-31 19:03:43] Training loss 0.005163494412718207 | Validation loss 0.007706132575809161 | Iterations 731
+[2022-07-31 19:03:43] Running epoch 34 | teacher_forcing_ratio=0.0
+[2022-07-31 19:14:07] Training loss 0.005124397813662967 | Validation loss 0.007752109988710538 | Iterations 731
+[2022-07-31 19:14:07] Running epoch 35 | teacher_forcing_ratio=0.0
+[2022-07-31 19:24:16] Training loss 0.0050766693443661925 | Validation loss 0.007639588996156622 | Iterations 731
+[2022-07-31 19:26:27] Validation MAE: {6: 3.911130596186894, 12: 10.130627188620256, 18: 18.169882850478317, 24: 27.63412748580798}
+[2022-07-31 19:26:28] Running epoch 36 | teacher_forcing_ratio=0.0
+[2022-07-31 19:36:36] Training loss 0.005039860528027576 | Validation loss 0.0075643502666530036 | Iterations 731
+[2022-07-31 19:36:36] Running epoch 37 | teacher_forcing_ratio=0.0
+[2022-07-31 19:46:44] Training loss 0.0050078760329971056 | Validation loss 0.007595434519414164 | Iterations 731
+[2022-07-31 19:46:44] Running epoch 38 | teacher_forcing_ratio=0.0
+[2022-07-31 19:56:54] Training loss 0.004984377552080457 | Validation loss 0.007640560154227481 | Iterations 731
+[2022-07-31 19:56:54] Running epoch 39 | teacher_forcing_ratio=0.0
+[2022-07-31 20:07:14] Training loss 0.004956878018227617 | Validation loss 0.007536834896066074 | Iterations 731
+[2022-07-31 20:07:14] Running epoch 40 | teacher_forcing_ratio=0.0
+[2022-07-31 20:17:34] Training loss 0.004921797011629178 | Validation loss 0.007521366432279833 | Iterations 731
+[2022-07-31 20:19:43] Validation MAE: {6: 3.826989453675834, 12: 9.862738568708053, 18: 17.594186191882805, 24: 26.64715865042232}
+[2022-07-31 20:19:44] Running epoch 41 | teacher_forcing_ratio=0.0
+[2022-07-31 20:29:42] Training loss 0.0049058317334214115 | Validation loss 0.0074636082904017895 | Iterations 731
+[2022-07-31 20:29:42] Running epoch 42 | teacher_forcing_ratio=0.0
+[2022-07-31 20:39:39] Training loss 0.0048815711134221635 | Validation loss 0.007435268135001406 | Iterations 731
+[2022-07-31 20:39:39] Running epoch 43 | teacher_forcing_ratio=0.0
+[2022-07-31 20:49:35] Training loss 0.004857932973763096 | Validation loss 0.0074784635817758405 | Iterations 731
+[2022-07-31 20:49:35] Running epoch 44 | teacher_forcing_ratio=0.0
+[2022-07-31 20:59:34] Training loss 0.004824321557342943 | Validation loss 0.007375019986225849 | Iterations 731
+[2022-07-31 20:59:34] Running epoch 45 | teacher_forcing_ratio=0.0
+[2022-07-31 21:09:31] Training loss 0.004815886466831418 | Validation loss 0.007401834295003869 | Iterations 731
+[2022-07-31 21:11:38] Validation MAE: {6: 3.783220883330741, 12: 9.796754909503886, 18: 17.558833752455456, 24: 26.674731978472114}
+[2022-07-31 21:11:39] Running epoch 46 | teacher_forcing_ratio=0.0
+[2022-07-31 21:21:38] Training loss 0.004796434654661796 | Validation loss 0.0073217979553686875 | Iterations 731
+[2022-07-31 21:21:38] Running epoch 47 | teacher_forcing_ratio=0.0
+[2022-07-31 21:32:06] Training loss 0.0047702201702347615 | Validation loss 0.007376149737904321 | Iterations 731
+[2022-07-31 21:32:06] Running epoch 48 | teacher_forcing_ratio=0.0
+[2022-07-31 21:42:45] Training loss 0.00474837218393601 | Validation loss 0.007321837057109808 | Iterations 731
+[2022-07-31 21:42:45] Running epoch 49 | teacher_forcing_ratio=0.0
+[2022-07-31 21:52:58] Training loss 0.004721312407093441 | Validation loss 0.007309328349186304 | Iterations 731
