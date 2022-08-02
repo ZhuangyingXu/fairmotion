@@ -1,3 +1,56 @@
+<div align="center">
+<h1>Reproduce steps</h1>
+<div align="center">
+
+<div align="justify">
+
+<h2>Dataset download</h2>
+
+- Data download: SYNTHETIC AMASS 60FPS - DOWNLOAD SERVER 1 (source: https://dip.is.tue.mpg.de/download.php)
+- Data folder structure example:
+
+<image src="./folder_structure.png" width="600">
+
+- Note: .pkl lists for files used in train, valid, test process can be found under files fairmotion\tasks\motion_prediction\data\XXX_fnames.txt. The current split is (0.7, 0.2, 0.1) for train, validation, test datasets. If want to change the split ratios:
+  - update the lisa_resplit_data.py in the root folder based on your folder structure
+  - run the lisa_resplit_data.py
+
+<h2>Example folder setups</h2>
+
+- Note: the variables listed here comes from the original fairmotion motion prediction task guidance: https://github.com/facebookresearch/fairmotion/tree/main/fairmotion/tasks/motion_prediction
+- "PATH TO RAW DATA" = "D:\gitHub\GT\fairmotion\data\rawdata\synthetic60FPS\Synthetic_60FPS"
+- "PREPROCESSED OUTPUT PATH"
+  - "D:\gitHub\GT\fairmotion\data\preprocessedoutput" for preprocessing
+  - "D:\gitHub\GT\fairmotion\data\preprocessedoutput\aa" for training and testing
+- "PATH TO MODEL" = "D:\gitHub\GT\fairmotion\data\savedmodels"
+- "PATH TO SAVE PREDICTED MOTIONS" = "D:\gitHub\GT\fairmotion\data\predictedmotions"
+
+<h2>Example preprocess command</h2>
+
+```
+python fairmotion/tasks/motion_prediction/preprocess.py 	--input-dir "D:\gitHub\GT\fairmotion\data\rawdata\synthetic60FPS\Synthetic_60FPS" 	--output-dir "D:\gitHub\GT\fairmotion\data\preprocessedoutput" 	--split-dir ./fairmotion/tasks/motion_prediction/data/     --rep aa
+```
+
+<h2>Example Train command</h2>
+
+```
+python fairmotion/tasks/motion_prediction/training.py     --save-model-path "D:\gitHub\GT\fairmotion\data\savedmodels"    --preprocessed-path "D:\gitHub\GT\fairmotion\data\preprocessedoutput\aa"    --epochs 50    --architecture "seq2seq"
+```
+- Note: selectable architectures: ["seq2seq", "tied_seq2seq", "transformer", "transformer_encoder", "rnn"]
+- Note: The transformer keeps meeting error: RuntimeError: CUDA out of memory. Kind of unfixable through investigations. So I Ignored here.
+
+<h2>Example Test command</h2>
+
+```
+python fairmotion/tasks/motion_prediction/test.py --save-model-path "D:\gitHub\GT\fairmotion\data\savedmodels" --preprocessed-path "D:\gitHub\GT\fairmotion\data\preprocessedoutput\aa" --save-output-path "D:\gitHub\GT\fairmotion\data\predictedmotions" --architecture  "seq2seq"
+```
+
+- Selectable architectures: ["seq2seq", "tied_seq2seq", "transformer", "transformer_encoder", "rnn"]
+
+<div align="center">
+<h1>Below are from original fairmotion readme</h1>
+<div align="center">
+
 # fairmotion
 
 fairmotion provides easy-to-use interfaces and tools to work with motion capture data. The objective of the library is to manage the complexity of motion representation, 3D transformations, file formats and visualization, and let users focus on high level learning tasks. 
